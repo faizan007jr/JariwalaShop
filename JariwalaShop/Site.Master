@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="JariwalaShop.Site" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="/Content/bootstrap-minty.min.css" rel="stylesheet" />
+    <link href="/Content/main.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="formMain" runat="server" role="form">
+
+        <asp:ContentPlaceHolder ID="nav" runat="server">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+                <div class="container">
+                    <a class="navbar-brand" href="#">Jariwala</a>
+                    <button class="navbar-toggler" type="button"
+                        data-toggle="collapse"
+                        data-target="#nav-items"
+                        aria-controls="nav-items"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="nav-items">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <asp:HyperLink runat="server" ID="hlShop"
+                                    CssClass="nav-link"
+                                    NavigateUrl="/Shop">
+                                    Shop
+                                </asp:HyperLink>
+                            </li>
+                            <li class="nav-item">
+                                <asp:HyperLink runat="server" ID="hlCart"
+                                    CssClass="nav-link"
+                                    NavigateUrl="/Cart">
+                                    Cart
+                                    <span class="badge badge-secondary badge-pill">
+                                        <asp:Label ID="lblCartItems" runat="server" Text="0" />
+                                    </span>
+                                </asp:HyperLink></li>
+                            <li class="nav-item">
+                                <asp:HyperLink runat="server" ID="hlAccount"
+                                    CssClass="nav-link"
+                                    NavigateUrl="/Account">
+                                    Account
+                                </asp:HyperLink></li>
+                            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+                                href="#"
+                                id="customerSupportDropdown"
+                                role="button"
+                                data-toggle="dropdown"
+                                aria-haspopup="true"
+                                aria-expanded="false">Admin </a>
+                                <div class="dropdown-menu" aria-labelledby="customerSupportDropdown">
+                                    <asp:HyperLink runat="server" ID="hlOrder"
+                                        CssClass="dropdown-item"
+                                        NavigateUrl="Admin/Order">
+                                    Order
+                                    </asp:HyperLink><asp:HyperLink runat="server" ID="hlAddProduct"
+                                        CssClass="dropdown-item"
+                                        NavigateUrl="Admin/AddProduct">
+                                    Add Products
+                                    </asp:HyperLink><asp:HyperLink runat="server" ID="hlEditProducts"
+                                        CssClass="dropdown-item"
+                                        NavigateUrl="Admin/EditProduct">
+                                    Edit Products
+                                    </asp:HyperLink>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="form-inline my-2 my-lg-0">
+                            <asp:Button ID="btnLogout" runat="server"
+                                CssClass="btn btn-secondary btn-block my-2 my-sm-0"
+                                CausesValidation="False"
+                                Text="Logout"
+                                OnClick="btnLogout_Click"
+                                UseSubmitBehavior="False" />
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </asp:ContentPlaceHolder>
+
+        <div class="container">
+
+            <header class="jumbotron page-header">
+                <asp:ContentPlaceHolder ID="header" runat="server">
+                    <h1 class="display-4">B. Jariwala & Son's</h1>
+                    <p class="my-4">Welcome to our online store.</p>
+                </asp:ContentPlaceHolder>
+            </header>
+            <main>
+                <asp:ContentPlaceHolder ID="main" runat="server">
+                </asp:ContentPlaceHolder>
+            </main>
+
+        </div>
+
+        <asp:ContentPlaceHolder ID="footer" runat="server">
+            <footer class="navbar navbar-dark bg-primary text-white">
+                <div class="container">
+                    Copyright&copy; 2018, Jariwala.
+                </div>
+            </footer>
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>
